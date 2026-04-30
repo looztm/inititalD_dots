@@ -1,0 +1,333 @@
+/* ============================================================
+ *   GLOBAL
+ * ============================================================ */
+* {
+  font-family: "FontAwesome", "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  color: #000000;
+  padding: 0;
+}
+
+/* ============================================================
+ *   TOOLTIP
+ * ============================================================ */
+tooltip, .tooltip {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 8px;
+  padding: 6px 8px;
+  box-shadow: none;
+}
+
+/* ============================================================
+ *   WAYBAR WINDOW
+ * ============================================================ */
+window#waybar {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ============================================================
+ *   MODULES (Blue Gradient)
+ * ============================================================ */
+#workspaces,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#pulseaudio-slider,
+#backlight,
+#backlight-slider,
+#tray,
+#tray,
+#gamemode,
+#taskbar,
+#custom-rofi,
+#custom-term,
+#mpris,
+#cava,
+#custom-previous,
+#custom-next,
+#custom-pause,
+#language,
+#custom-position,
+#custom-power {
+  font-family: fira-code;
+  background: #fff;
+}
+
+#language {
+  border-radius: 24px;
+  padding: 0 10px;
+  transition: all 0.2s ease-in-out;
+  background: none;
+  color: white;
+}
+
+#clock {
+  border-radius: 24px;
+  padding: 0 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+#clock:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+/* ============================================================
+ *   MODULE END CAPS
+ * ============================================================ */
+#workspaces {
+  border-radius: 24px;
+}
+
+#custom-power {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  padding: 0 10px 0 6px;
+}
+
+#memory {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+#cava {
+  color: #000000;
+  background-color: #fff;
+  font-family: "monospace";  /* Моноширинный шрифт обязателен */
+  font-size: 16px;
+  border-radius: 24px;
+  padding: 5px;
+}
+
+/* ============================================================
+ *   PADDING
+ * ============================================================ */
+#tray {
+  padding-left: 4px;
+}
+
+#network {
+  padding-left: 10px;
+  padding-right: 0px;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+#workspaces,
+#battery,
+#cpu {
+  padding: 0 10px;
+  padding-left: 6px;
+}
+
+#battery.charging {
+  padding-right: 4px;
+}
+
+#pulseaudio {
+  padding: 0 12px;
+  padding-left: 6px;
+}
+
+#backlight {
+  padding: 0;
+  margin: 0 -5px;
+}
+
+#memory {
+  padding: 0 6px;
+  padding-left: 12px;
+}
+
+#custom-rofi {
+  border-radius: 24px;
+  padding-left: 9px;
+  padding-right: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-rofi:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+#mpris {
+  border-radius: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+#custom-previous.hidden,
+#custom-next.hidden,
+#custom-pause.hidden,
+#custom-position.hidden {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    opacity: 0;
+}
+
+#custom-position {
+  border-radius: 0px 24px 24px 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#custom-previous {
+  border-radius: 24px 0px 0px 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-next {
+  border-radius: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-pause {
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-power {
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-power:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+#custom-pause:hover,
+#custom-next:hover,
+#custom-previous:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+
+
+/* ============================================================
+ *   SLIDERS
+ * ============================================================ */
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  min-height: 0;
+  min-width: 0;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  margin:6px 0;
+  min-height: 8px;
+  border: none;
+  min-width: 10px;
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: none;
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-height: 4px;
+  min-width: 10px;
+  border: none;
+  border-radius: 3px;
+  background: #000000;
+  box-shadow: 0px 0px 3px 0px rgba(255, 255, 255,0.1) inset;
+}
+
+/* ============================================================
+ *   WORKSPACES BUTTONS
+ * ============================================================ */
+#workspaces button {
+  padding: 0;
+  margin: 0 3px;
+  background: transparent;
+  border: none;
+  color: #000000;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* ============================================================
+ *   TASKBAR
+ * ============================================================ */
+
+#gamemode {
+  border-radius: 24px;
+  transition: all 0.2s ease-in-out;
+} 
+
+#gamemode:hover {
+  color: #fff;
+  background-color: #000000;
+}
+
+#custom-term {
+  border-radius: 24px 0px 0px 24px;
+  font-size: 40px;
+  padding: 5px;
+  padding-right: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+#custom-term:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+#taskbar {
+  border-radius: 0px 24px 24px 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#taskbar button {
+  background-color: transparent;  /* Прозрачный фон по умолчанию */
+  border-radius: 24px;
+  margin: 4px 2px;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+#taskbar button:hover {
+  border-radius: 6px;
+}
+
+#taskbar button.active {
+  background-color: #000000;
+  border-radius: 24px;
+}
+
+#tray {
+    color: #000000;
+    background-color: #fff;  /* Сдвигаем вправо */
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 24px;
+    transition: all 0.25s ease-out;
+}
+
+#tray menu {
+  background-color: #fff;
+  color: #000000;
+}
+

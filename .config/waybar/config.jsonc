@@ -1,0 +1,264 @@
+// -*- mode: jsonc -*-
+[
+    {
+        "layer": "top",
+        //"position": "bottom",
+        "mod": "dock",
+        "exclusive": true,
+        "passthrough": false,
+        "gtk-layer-shell": true,
+        "reload_style_on_change": false, // make it off when not styling so you save disk being on always for the style.css
+        //"width": 1280,
+        "height": 28,
+        "margin-left": 8,
+        "margin-right": 8,
+        "margin-top": 6,
+        "margin-bottom": 6,
+        "spacing": 0, // Gaps between modules
+
+        "modules-left": [
+            "custom/rofi",
+            "ext/workspaces"
+        ],
+        "modules-center": [
+            "clock",
+            "mpris",
+            "custom/previous",
+            "custom/pause",
+            "custom/next",
+            "custom/position"
+        ],
+        "modules-right": [
+            "hyprland/language",
+            "tray",
+            "network",
+            "pulseaudio",
+            "pulseaudio/slider",
+            "battery",
+            "custom/power"
+        ],
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format": "<b>{:%H:%M %p}</b>",
+            "format-alt": "<b>{:%d-%m-%Y}</b>"
+        },
+        "cpu": { "format": "{usage}% " },
+        "memory": { "format": "{}% " },
+        "battery": {
+            "states": { "warning": 30, "critical": 15 },
+            "format-charging": "{capacity}% ",
+            "format-full": " 100%",
+            "format": "{capacity}% {icon}",
+            "format-icons": ["", "", "", "", ""] 
+        },
+        "network": {
+            "tooltip": true,
+            "format-wifi": "{icon} ",
+            "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+            "format-ethernet": "󰈁", 
+            "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>", 
+            "format-disconnected": " ",
+            "interval": 2
+        },
+        "pulseaudio": {
+            "format": "{icon}",
+            "rotate": 0, 
+            "format-muted": "x", 
+            "tooltip-format": "{icon} {desc} {volume}%", 
+            "scroll-step": 5, 
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "", 
+                "car": "", 
+                "default": ["", "", ""]
+            }
+        },
+        "ext/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "default": "",
+            "active": "" 
+            },
+            "persistent-workspaces": {
+            "*": [ 1, 2, 3, 4, 5 ]
+            },
+            "disable-scroll": false,
+            "on-click": "activate"
+        },
+        "backlight": {
+            "tooltip": false,
+            "device": "intel_backlight",
+            "rotate": 0,
+            "format": " {icon}  ", 
+            "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"], 
+            "scroll-step": 1,
+            "min-length": 2
+        },
+        "backlight/slider": {
+            "min": 5,
+            "max": 100,
+            "rotate": 0,
+            "orientation": "vertical",
+            "device": "intel_backlight",
+            "scroll-step": 1
+        },
+        "custom/power": {
+            "format": "⏻ ",
+            "tooltip": false,
+            "on-click": "~/.config/waybar/power.sh"
+        },
+        "pulseaudio/slider": {
+            "min": 0,
+            "max": 100,
+            "rotate": 0,
+            "orientation": "vertical",
+            "device": "pulseaudio",
+            "scroll-step": 1
+        },
+        "custom/rofi": {
+            "format": "󰣇 ",
+            "on-click": "rofi -show drun -location 1 -theme-str 'window { width: 300px; height: 300px; }'",
+            "tooltip": false
+        },
+
+        "mpris": {
+            "format": "<b>{title}</b>",
+            "title-len": 30,
+            "interval": 1,
+            "escape": true
+            // "ignored-players": ["firefox"]
+        },
+
+        "custom/position": {
+            "format": "<b>-{}</b>",
+            "return-type": "json",
+            "interval": 1,
+            "exec": "~/.config/waybar/position.sh",
+            "tooltip": false,
+            "escape": true
+        },
+
+        "custom/previous": {
+            "format": "{}",
+            "on-click": "playerctl previous",
+            "tooltip": false,
+            "escape": true,
+            "exec": "~/.config/waybar/statusplay.sh",
+            "interval": 1,
+            "return-type": "json"
+        },
+
+        "custom/next": {
+            "format": "{}",
+            "on-click": "playerctl next",
+            "tooltip": false,
+            "escape": true,
+            "exec": "~/.config/waybar/statusplay_next.sh",
+            "interval": 1,
+            "return-type": "json"
+        },
+
+        "custom/pause": {
+            "format": "{}",
+            "return-type": "json",
+            "interval": 1,
+            "on-click": "playerctl play-pause",
+            "exec": "~/.config/waybar/status.sh",
+            "tooltip": false,
+            "escape": true
+        },
+
+        "tray": {
+            "icon-size": 16,
+            "spacing": 10
+        },
+
+        "hyprland/language": {
+            "format": "<b>{short}</b>"
+        }
+    },
+
+    {
+        "layer": "bottom",
+        "position": "bottom",
+        "mod": "dock",
+        "exclusive": true,
+        "passthrough": false,
+        "gtk-layer-shell": true,
+        "reload_style_on_change": false, // make it off when not styling so you save disk being on always for the style.css
+        //"width": 1280,
+        "height": 34,
+        "margin-left": 8,
+        "margin-right": 8,
+        "margin-top": 6,
+        "margin-bottom": 6,
+        "spacing": 0, // Gaps between modules
+
+        "modules-left": [
+            "gamemode"
+        ],
+        "modules-center": [
+            "custom/term",
+            "wlr/taskbar"
+        ],
+        "modules-right": [
+            "cava"
+        ],
+
+        "wlr/taskbar": {
+            "format": "{icon}",
+            "icon-size": 34,
+            "icon-theme": "Numix-Circle",
+            "tooltip-format": "{title}",
+            "on-click": "activate",
+            "on-click-middle": "close"
+        },
+
+        "niri/language": {
+            "format": "{flag}"
+        },
+
+        "cava": {
+            "framerate": 1000,
+            "autosens": 1,
+            "bars": 30,
+            "hide_on_silence": false,
+            // "format_silent": "quiet",
+            "source": "auto",
+            "stereo": true,
+            "reverse": false,
+            "bar_delimiter": 0,
+            "monstercat": false,
+            "waves": false,
+            "noise_reduction": 0.85,
+            "input_delay": 2,
+            "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
+        },
+
+        "custom/term": {
+            "format": "",
+            "on-click": "kitty"
+        },
+
+        "gamemode": {
+            "format": "",
+            "format-alt": ": {count}",
+            "hide-not-running": true,
+            "use-icon": true,
+            "icon-name": "input-gaming-symbolic",
+            "icon-spacing": 4,
+            "icon-size": 20,
+            "tooltip": true,
+            "tooltip-format": "Games running: {count}"
+        }
+    }
+    
+]

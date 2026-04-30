@@ -1,0 +1,46 @@
+general {
+  hide_cursor = true
+}
+
+background {
+  monitor = # monitor-agnostic
+  path = ~/wallpapers/walp1.jpg
+  blur_passes = 1
+  blur_size = 7
+}
+
+label {
+  monitor =
+  text = $TIME
+  font_size = 100
+  position = 0, 400
+}
+
+image {
+    monitor =
+    path = /var/lib/AccountsService/icons/pavel.png # Путь к вашей аватарке
+    size = 100 # Размер аватара
+    rounding = -1 # Отрицательное значение делает круг, 0 - квадрат
+    border_size = 3
+    border_color = rgb(255, 255, 255)
+    position = -110, 80 # Позиция (x, y)
+    halign = center
+    valign = center
+}
+
+
+label {
+  monitor =
+  text = $USER
+  font_size = 50
+  position = 40, 80
+}
+
+
+input-field {
+  monitor =
+  size = 20%, 5%
+  font_family = Noto Sans
+  dots_size = 0.08
+  position = 0, -20
+}
